@@ -354,7 +354,7 @@ if __name__ == "__main__":
     ap.add_argument("--origin", action="append", default=[], help="额外允许的网页 Origin,可重复")
     a = ap.parse_args()
     PORT, DELAY = a.port, a.delay
-    ALLOWED_ORIGINS = set(a.origin)
+    ALLOWED_ORIGINS = {"https://xiaobai-aso.github.io", *a.origin}
     if a.no_accounts:
         state["accounts"] = []
     srv = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)

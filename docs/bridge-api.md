@@ -9,7 +9,7 @@
 - 地址:`http://127.0.0.1:47321`(端口可在网页「高级设置」里改)。
 - **只监听 127.0.0.1**,不能监听 0.0.0.0。
 - 校验 `Host` 头必须是 `127.0.0.1:<端口>` 或 `localhost:<端口>`,防 DNS rebinding。
-- CORS 只放行白名单里的 Origin(正式域名 + 开发用的 `http://localhost:*`)。预检请求要回 `Access-Control-Allow-Private-Network: true`(Chrome 的 Private Network Access)。
+- CORS 只放行白名单里的 Origin(正式域名 `https://xiaobai-aso.github.io` + 开发用的 `http://localhost:*`)。预检请求要回 `Access-Control-Allow-Private-Network: true`(Chrome 的 Private Network Access)。
 - 除 `/health`、`/pair`、`/setup` 外,所有接口都要带 `Authorization: Bearer <token>`;`EventSource` 不能带请求头,改用 `?token=`。
 - token 无效时回 `401`,网页会清掉 token 回到「未配对」状态。
 - 出错统一回 JSON:`{"error": "给用户看的中文说明"}`。
